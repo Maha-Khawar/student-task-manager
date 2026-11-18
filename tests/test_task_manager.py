@@ -20,8 +20,9 @@ class TestTaskManager(unittest.TestCase):
     def test_delete_task(self):
         tm.add_task("Write report")
         self.assertTrue(tm.delete_task(1))
-        self.assertEqual(len(tm.tasks), 5)
+        self.assertEqual(len(tm.tasks), 0)
 
     def test_empty_title_rejected(self):
         with self.assertRaises(ValueError):
             tm.add_task("   ")
+
