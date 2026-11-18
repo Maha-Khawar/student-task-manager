@@ -23,6 +23,8 @@ def display_tasks():
 def complete_task(task_id):
     for t in tasks:
         if t["id"] == task_id:
+            if t["completed"]:
+                return False
             t["completed"] = True
             return True
     return False
@@ -46,7 +48,10 @@ def main():
         elif choice == "2":
             display_tasks()
         elif choice == "3":
-            complete_task(int(input("Task ID: ")))
+            if complete_task(int(input("Task ID: "))):
+                print("Task marked as completed.")
+            else:
+                print("Task not found or already completed.")
         elif choice == "4":
             delete_task(int(input("Task ID: ")))
         elif choice == "5":
