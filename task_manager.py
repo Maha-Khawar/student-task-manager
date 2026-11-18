@@ -9,3 +9,11 @@ def add_task(title):
     tasks.append(task)
     next_id += 1
     return task
+
+def display_tasks():
+    if not tasks:
+        print("No tasks found.")
+        return
+    for t in tasks:
+        status = "[x]" if t["completed"] else "[ ]"
+        print(f'{t["id"]}. {status} {t["title"]}')
