@@ -45,11 +45,15 @@ def main():
         elif choice == "3":
             complete_task(int(input("Task ID: ")))
         elif choice == "4":
-            delete_task(int(input("Task ID: ")))
+            if delete_task(int(input("Task ID: "))):
+                print("Task deleted.")
+            else:
+                print("Invalid task ID.")
         elif choice == "5":
             break
 
 
 if __name__ == "__main__":
     main()
+
 
