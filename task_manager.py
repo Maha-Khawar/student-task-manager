@@ -26,6 +26,8 @@ def complete_task(task_id):
     return False
 
 def delete_task(task_id):
+    if not isinstance(task_id, int) or task_id < 1:
+        return False
     for t in tasks:
         if t["id"] == task_id:
             tasks.remove(t)
@@ -50,3 +52,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
