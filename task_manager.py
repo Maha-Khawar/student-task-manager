@@ -30,6 +30,8 @@ def complete_task(task_id):
     return False
 
 def delete_task(task_id):
+    if not isinstance(task_id, int) or task_id < 1:
+        return False
     for t in tasks:
         if t["id"] == task_id:
             tasks.remove(t)
@@ -53,7 +55,10 @@ def main():
             else:
                 print("Task not found or already completed.")
         elif choice == "4":
-            delete_task(int(input("Task ID: ")))
+            if delete_task(int(input("Task ID: "))):
+                print("Task deleted.")
+            else:
+                print("Invalid task ID.")
         elif choice == "5":
             break
 
