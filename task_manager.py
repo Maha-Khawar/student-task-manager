@@ -17,3 +17,10 @@ def display_tasks():
     for t in tasks:
         status = "[x]" if t["completed"] else "[ ]"
         print(f'{t["id"]}. {status} {t["title"]}')
+
+def complete_task(task_id):
+    for t in tasks:
+        if t["id"] == task_id:
+            t["completed"] = True
+            return True
+    return False
