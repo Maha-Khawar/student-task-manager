@@ -43,7 +43,10 @@ def main():
         elif choice == "2":
             display_tasks()
         elif choice == "3":
-            complete_task(int(input("Task ID: ")))
+            if complete_task(int(input("Task ID: "))):
+                print("Task marked as completed.")
+            else:
+                print("Task not found or already completed.")
         elif choice == "4":
             delete_task(int(input("Task ID: ")))
         elif choice == "5":
@@ -52,4 +55,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
