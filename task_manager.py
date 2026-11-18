@@ -4,6 +4,8 @@ tasks = []
 next_id = 1
 
 def add_task(title):
+    if not title or not title.strip():
+        raise ValueError('Task title cannot be empty.')
     global next_id
     task = {"id": next_id, "title": title, "completed": False}
     tasks.append(task)
@@ -37,7 +39,10 @@ def main():
         print("\n1. Add  2. Display  3. Complete  4. Delete  5. Exit")
         choice = input("Choose: ")
         if choice == "1":
-            add_task(input("Title: "))
+            try:
+                add_task(input("Title: "))
+            except ValueError as e:
+                print("Error:", e)
         elif choice == "2":
             display_tasks()
         elif choice == "3":
@@ -50,3 +55,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
